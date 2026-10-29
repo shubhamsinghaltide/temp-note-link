@@ -47,7 +47,7 @@
   }
 
   function setTheme(t) { document.documentElement.setAttribute('data-theme', t); localStorage.setItem(THEME_KEY, t); }
-  setTheme(localStorage.getItem(THEME_KEY) || 'dark');
+  setTheme(localStorage.getItem(THEME_KEY) || 'light');
   $('themeBtn').onclick = function () {
     setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   };
