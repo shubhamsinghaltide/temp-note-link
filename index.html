@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TempNote</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#151518">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>TempNote</h1>
+    <button id="themeBtn" class="ghost" title="Toggle theme">Theme</button>
+  </header>
+
+  <main id="editor">
+    <textarea id="note" placeholder="Type or paste anything here. Click Generate link to share it." spellcheck="false" autofocus></textarea>
+    <div class="bar">
+      <label>Link expires
+        <select id="expiry">
+          <option value="3600000">in 1 hour</option>
+          <option value="86400000" selected>in 1 day</option>
+          <option value="604800000">in 7 days</option>
+          <option value="0">never</option>
+        </select>
+      </label>
+      <button id="genBtn">Generate link</button>
+      <button id="clearBtn" class="ghost">Clear</button>
+      <span id="count" class="muted"></span>
+    </div>
+    <div id="result" class="result" hidden>
+      <input id="linkOut" readonly>
+      <button id="copyLinkBtn">Copy link</button>
+    </div>
+    <p class="muted small">Nothing is uploaded. The note is compressed into the link itself (after the #), so only people with the link can read it. Expiry is enforced by the page, not a server.</p>
+  </main>
+
+  <main id="viewer" hidden>
+    <div id="viewMeta" class="muted"></div>
+    <pre id="viewText"></pre>
+    <div class="bar">
+      <button id="copyTextBtn">Copy text</button>
+      <button id="editCopyBtn" class="ghost">Edit a copy</button>
+      <button id="newBtn" class="ghost">New note</button>
+    </div>
+  </main>
+
+  <div id="toast" role="status"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
